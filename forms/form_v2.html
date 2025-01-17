@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Product Form</title>
+    <style>
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+        .form-group {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .form-group label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+            background-color: #B9FF66;
+            color: #000;
+        }
+        .form-group:nth-child(even) label {
+            background-color: #000;
+            color: #B9FF66;
+        }
+        .form-group input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #000;
+            margin-left: 10px;
+        }
+        .buttons {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .add-btn {
+            background-color: #007BFF;
+            color: white;
+        }
+        .add-btn:hover {
+            background-color: #0056b3;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+        }
+        .submit-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Product Form</h1>
+        <form id="productForm">
+            <div id="formFields">
+                <div class="form-group" id="product1">
+                    <label for="product1Input">Product 1</label>
+                    <input type="text" id="product1Input" name="product1">
+                </div>
+            </div>
+            <div class="buttons">
+                <button type="button" class="add-btn" onclick="addProduct()">Add Product</button>
+                <button type="submit" class="submit-btn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script>
+        let productCount = 1;
+
+        function addProduct() {
+            productCount++;
+            const formFields = document.getElementById('formFields');
+
+            const newProductDiv = document.createElement('div');
+            newProductDiv.classList.add('form-group');
+            newProductDiv.id = `product${productCount}`;
+
+            const newLabel = document.createElement('label');
+            newLabel.setAttribute('for', `product${productCount}Input`);
+            newLabel.textContent = `Product ${productCount}`;
+            if (productCount % 2 === 0) {
+                newLabel.style.backgroundColor = '#000';
+                newLabel.style.color = '#0f0';
+            } else {
+                newLabel.style.backgroundColor = '#0f0';
+                newLabel.style.color = '#000';
+            }
+
+            const newInput = document.createElement('input');
+            newInput.type = 'text';
+            newInput.id = `product${productCount}Input`;
+            newInput.name = `product${productCount}`;
+
+            newProductDiv.appendChild(newLabel);
+            newProductDiv.appendChild(newInput);
+            formFields.appendChild(newProductDiv);
+        }
+
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const entries = Array.from(formData.entries());
+            console.log(entries);
+            alert('Form submitted! Check console for data.');
+        });
+    </script>
+</body>
+</html>
