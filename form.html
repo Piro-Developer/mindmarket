@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Layout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff;
+            color: #000;
+        }
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f9f9f9;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+        h1 {
+            text-align: center;
+            color: #000;
+            margin-bottom: 20px;
+            text-decoration: underline;
+        }
+        .form-group {
+            margin-bottom: 40px;
+            text-align: left;
+        }
+        .form-group label {
+            display: inline-block;
+            margin-bottom: 10px;
+            font-weight: bold;
+            padding: 5px 10px;
+            border-radius: 4px;
+        }
+        .form-group:nth-child(odd) label {
+            background-color: #B9FF66;
+            color: #000;
+        }
+        .form-group:nth-child(even) label {
+            background-color: #000;
+            color: #B9FF66;
+        }
+        .form-group input, .form-group textarea {
+            width: calc(100% - 20px);
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            background-color: #fff;
+            color: #000;
+            margin-left: 10px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-btn {
+            display: block;
+            width: calc(100% - 40px);
+            margin: 0 auto;
+            padding: 10px;
+            background-color: #B9FF66;
+            border: none;
+            color: #000;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .submit-btn:hover {
+            background-color: #B9FF66;
+        }
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666;
+        }
+        footer a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LET’S KNOW YOU BETTER</h1>
+        <form>
+            <div class="form-group">
+                <label for="age">What is your age?</label>
+                <input type="text" id="age" name="age">
+            </div>
+            <div class="form-group">
+                <label for="profession">What is your profession?</label>
+                <input type="text" id="profession" name="profession">
+            </div>
+            <div class="form-group">
+                <label for="mobile">What is your mobile number?</label>
+                <input type="text" id="mobile" name="mobile">
+            </div>
+            <div class="form-group">
+                <label for="occupation">What is your occupation?</label>
+                <input type="text" id="occupation" name="occupation">
+            </div>
+            <div class="form-group">
+                <label for="hobbies">What are your hobbies?</label>
+                <input type="text" id="hobbies" name="hobbies">
+            </div>
+            <div class="form-group">
+                <label for="address">What is your address?</label>
+                <textarea id="address" name="address" rows="3"></textarea>
+            </div>
+            <button type="submit" class="submit-btn">SUBMIT</button>
+        </form>
+    </div>
+    <footer>
+        <p>About us | Services | Use Cases | Pricing | Blog | <a href="#">Request a quote</a></p>
+    </footer>
+</body>
+</html>
